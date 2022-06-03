@@ -1,11 +1,11 @@
 #include <stdio.h>
 /**
-*main - entry point
+*main - Prints out a string to stdout
 *
-*Return: 0 number
+*Return: Always 0 (Success)
 */
 int main(void)
 {
-puts("\"Programming is like building a multilingual puzzel");
+puts("\"Programming is like building a multilingual puzzle");
 return (0);
 }
