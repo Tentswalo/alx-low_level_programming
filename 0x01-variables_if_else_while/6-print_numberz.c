@@ -1,6 +1,7 @@
 #include <stdio.h>
 /**
- * main -prints numbers from 0-9 without using char or printf/puts, and putchar 2x max
+* main -prints numbers from 0-9 without using char or printf/puts,
+*and putchar 2x max
 (*
 * Return: Always 0 (Success)
 */
