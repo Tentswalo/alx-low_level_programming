@@ -1,15 +1,16 @@
 #include "main.h"
 /**
-* main - Entry point
+* main - Prints the string "main" from a character array
 *
 * Return: Always 0 (Success)
 */
 int main(void)
 {
-char *sh = "main";
-while (*sh)
+char c[] = "main";
+int i;
+for (i = 0; i < 9; i++)
 {
-_putchar(*sh);
+_putchar(c[i]);
 sh++;
 }
 _putchar('\n');
