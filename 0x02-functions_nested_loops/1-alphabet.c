@@ -6,12 +6,6 @@
 */
 int main(void)
 {
-int n;
-for (n = 'a'; n <= 'z'; n++)
-{
-print_alphabet();
-_putchar(n);
-}
-_putchar('\n');
-return (0);
+  print_alaphabet();
+  return (0);
 }
