@@ -14,7 +14,7 @@ return (l - 1);
 return (palind2(a + 1, l + 1));
 }
 /**
-* palind3 - compares string vs reverse
+* palind3 - compares string vs string reverse
 * @a: string
 * @l: length
 *
