@@ -4,6 +4,7 @@
 /**
 * free_dog - initialize a variable 
 * @d: dog's details
+*
 */
 
 void free_dog(dog_t *d)
