@@ -3,7 +3,7 @@
 
 /**
 * free_dog - initialize a variable 
-* @d: dog's details
+* @d: pointer to free dog
 *
 */
 
