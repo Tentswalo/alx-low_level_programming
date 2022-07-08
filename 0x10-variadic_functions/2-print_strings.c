@@ -18,16 +18,16 @@ va_start(myList), n);
 
 counter = 0;
 while (counter < n)
-  {
-    p = va_arg(myList, char*);
-    if (p == NULL)
-      printf("(nil)");
-    else
-      printf("%s", p);
-    if (counter != (n - 1) && separator != NULL)
-      printf("%s", separator);
-    counter++;
-  }
+{
+p = va_arg(myList, char*);
+if (p == NULL)
+printf("(nil)");
+else
+printf("%s", p);
+if (counter != (n - 1) && separator != NULL)
+printf("%s", separator);
+counter++;
+}
 printf("\n");
 
 va_end(myList);
