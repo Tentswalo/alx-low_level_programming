@@ -4,16 +4,16 @@
 * free_list - function that frees a list
 * @head: parameter that points to the header
 *
+* Return: Void
 */
+
 void free_list(list_t *head)
 {
 list_t *temp;
 
-while (head)
+for (temp = head; temp != NULL; temp = temp->next)
 {
-temp = hrad->next;
-free(head->str);
-free(head);
-head = temp;
+free(temp->str);
+free(temp);
 }
 }
