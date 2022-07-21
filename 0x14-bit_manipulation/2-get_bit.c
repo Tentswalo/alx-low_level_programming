@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * get_bit - returns the value of a bit at a given index
- * @n: number to check bits
- * @index: index at which to check bit
- *
- * Return: value of the bit
- */
+* get_bit - returns the value of a bit at a given index
+* @n: number to check bits
+* @index: index at which to check bit
+*
+* Return: value of the bit
+*/
 int get_bit(unsigned long int n, unsigned int index)
 {
 unsigned long int divisor, check;
