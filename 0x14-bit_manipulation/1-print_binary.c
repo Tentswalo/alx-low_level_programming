@@ -1,36 +1,26 @@
 #include "main.h"
 
 /**
-* print_binary - Prints the binary representation
-* @n: The number to representing in binary
-*
-* Return: Nothing
+* print_binary - prints binary representation
+* @n: parameter
 */
 void print_binary(unsigned long int n)
 {
-if (n == 0)
+int i, count = 0;
+unsigned long int current;
+
+for (i = 63; i >= 0; i--)
 {
-_putchar('0');
-return;
-}
-_divide(n);
-}
+current = n >> i;
 
-/**
-* _divide - ...
-* @n: ...
-*
-* Return: ...
-*/
-void _divide(unsigned long int n)
+if (current & 1)
 {
-if (n < 1)
-return;
-
-_divide(n >> 1);
-
-if (n & 1)
 _putchar('1');
-else
+count++;
+}
+else if (count)
+_putchar('0');
+}
+if (!count)
 _putchar('0');
 }
