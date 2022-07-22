@@ -9,13 +9,13 @@
 */
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-  unsigned long in t_binary;
+unsigned long in t_binary;
 
-  t_binary = (sizeof(*(n)) * 8);
-  if (index < t_binary)
-    {
-      *(n) = (~(1 << index) & *(n));
-      return (1);
-    }
-  return (-1);
+t_binary = (sizeof(*(n)) * 8);
+if (index < t_binary)
+{
+*(n) = (~(1 << index) & *(n));
+return (1);
+}
+return (-1);
 }
