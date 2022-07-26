@@ -1,48 +1,50 @@
 #include "main.h"
 
 /**
- * main - copy a file
- * @argc: the number of args
- * @argv: the Args.
- * Return: Always 0.
- */
+* main - copy a file
+* @argc: the number of args
+* @argv: the Args.
+* Return: Always 0.
+*/
 
 int main(int argc, char *argv[])
 {
-  int src_fd, dest_fd;
-  int _read, _close_src, _close_dest;
-  char buffer[1024];
+int file_from, file_to;
+int num1 = 1024, num2 = 0;
+char buffer[1024];
 
-  if (argc > 3 || argc < 3)
-    {
-      dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-      exit (97);
-    }
-  src_fd = open(*(argv + 1), O_RDONLY);
-  if (src_fd == -1)
-    {
-      dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", *(argv + 1));
-      exit (98);
-    }
-  dest_fd = open(*(argv + 2), O_TRUNC | O_CREAT | O_WRONLY, 0664);
-  while ((_read = read(src_fd, buffer, 1024)) > 0)
-    {
-      if (dest_fd == -1 || (write(dest_fd, buffer, _read) != _read))
-	{
-	  dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", *(argv + 2));
-	  exit (99);
-	}
-    }
-  if (_read < 0)
-    {
-      dprintf(STDERRFILENO, "Error: Can't read from file %s\n", *(argv + 1));
-      exit (98);
-    }
-  _close_src = close(src_fd);
-  if (_close_src < 0)
-    dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", src_fd), exit(100);
-  _close_dest = close(dest_fd);
-  if (_close_dest < 0)
-    dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", dest_fd), exit(100);
-  return (0);
+if (argc != 3)
+dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
+file_from = open(argv[1], O_RDONLY);
+if (file_from == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+exit (98);
+}
+file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR
+| S_IRGRP | S_IWGRP | S_IROTH);
+ if (file_to == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+close(file_from), exit (99);
+}
+while (num1 == 1024)
+{
+num1 = read(file_from, buf, 1024);
+if (num1 == -1)
+{
+dprintf(STDERRFILENO, "Error: Can't read from file %s\n", argv[1]);
+exit (98);
+}
+num2 = write(file_to, buf, num1);
+if (num2 < num1)
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+}
+
+if (close(file_from) == -1)
+dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from), exit(100);
+if (close(file_to) == -1)
+dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to), exit(100);
+
+return (0);
 }
