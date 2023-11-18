@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
 * myCleanupFun - prints before main function executed
-* 
+*
 */
 void myCleanupFun(void) __attribute__ ((constructor));
 
