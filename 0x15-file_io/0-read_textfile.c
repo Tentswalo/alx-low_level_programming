@@ -1,39 +1,39 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "mainn.h"
 
 /**
-* read_textfile - Entry point
-* @filename: file name
-* @letters: size
-* Return: always 0
-*/
-ssize_t read_textfile(const char *filename, size_t letters)
+ * create_file - function that creates a file.
+ * @filename: variable pointer
+ * @text_content: content file
+ * Description: Create a function that creates a file.
+ * Return: 1 on success, -1 on failure
+ */
+
+int create_file(const char *filename, char *text_content)
 {
-int file, rd, wr;
-char *buf;
+	int i = 0, file;
 
-if (filename == NULL)
-return (0);
+	if (filename == NULL)
+		return (-1);
 
-file = open(filename, O_RDONLY);
+	if (text_content == NULL)
+		text_content = "";
 
-if (file == -1)
-return (0);
 
-buf = malloc(sizeof(char) * letters + 1);
-if (buf == NULL)
-return (0);
+	while (text_content[i] != '\0')
+	{
+		i++;
+	}
 
-rd = read(file, buf, letters);
-if (rd == -1)
-return (0);
+	file = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
 
-buf[letters] = '\0';
+	if (file == -1)
+		return (-1);
 
-wr = write(1, buf, rd);
-if (wr == -1)
-return (0);
+	write(file, text_content, i);
 
-close(file);
-free(buf);
+	return (1);
+}
 return (wr);
 }
